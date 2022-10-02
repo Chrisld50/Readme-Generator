@@ -1,13 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs')
+const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
-    inquirer
-.prompt([
    {
        type: 'input',
-       name: 'project',
+       name: 'title',
        message: 'What is your project name?'
    },
    {
@@ -26,9 +25,10 @@ const questions = [
        message: 'please provide information on the usage of your project'
    },
    {
-       type: 'input',
+       type: 'list',
        name: 'license',
-       message: 'please provide the licenses that were used'
+       choices: [ 'MIT License', 'GNU General Publice License v3.0', 'Eclipse Publice License 2.0', 'Mozilla Public License 2.0', 'The Unlicense', 'BSD 2-Clause', 'BSD 3-Clause', 'Boost Software', 'Apache License 2.0' ],
+       message: 'choose a license for your project'
    },
    {
        type: 'input',
@@ -49,55 +49,20 @@ const questions = [
        type: 'input',
        name: 'email',
        message: 'please provide your email'
-   }
-   
-])
+   }  
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    data = ({project, description, })
 
-`## ${project}
+function init() {
 
-## Description
+    inquirer.prompt(questions).then((data => {
+        const READMEContent = generateMarkdown(data)
+        fs.writeFile('newREADME.md', READMEContent, (err) =>
+        err? console.log(err) : console.log('README created!')
+        )
+    }))
 
-${description}
-
-## Table of Contents
-Installation
-
-Usage
-
-License
-
-Contributing
-
-Test
-
-## Installation
-${installation}
-
-## Usage
-${usage}
-
-## License
-${license}
-
-## Contributing
-${contributing}
-## Test
-${test}
-
-## My information
-My Github: ${github}
-My Email: ${email}
-
- `;
 }
-
-// TODO: Create a function to initialize app
-function init() {}
 
 // Function call to initialize app
 init();
