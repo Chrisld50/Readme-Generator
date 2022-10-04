@@ -1,9 +1,9 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer')
+const inquirer = require('inquirer')  // here I call the different packages I use and the other js file, generateMarkdown.
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = [  // Here are the questions that are presented when its prompted in the terminal.
    {
        type: 'input',
        name: 'title',
@@ -27,7 +27,7 @@ const questions = [
    {
        type: 'list',
        name: 'license',
-       choices: [ 'MIT License', 'GNU General Publice License v3.0', 'Eclipse Publice License 2.0', 'Mozilla Public License 2.0', 'The Unlicense', 'BSD 2-Clause', 'BSD 3-Clause', 'Boost Software', 'Apache License 2.0' ],
+       choices: [ 'MIT', 'GPL 3.0', 'Mozilla', 'Unlicense', 'Boost Software', 'Apache' ],
        message: 'choose a license for your project'
    },
    {
@@ -55,7 +55,7 @@ const questions = [
 
 function init() {
 
-    inquirer.prompt(questions).then((data => {
+    inquirer.prompt(questions).then((data => {  // this function runes the inquirer and creates the markdown.
         const READMEContent = generateMarkdown(data)
         fs.writeFile('newREADME.md', READMEContent, (err) =>
         err? console.log(err) : console.log('README created!')
