@@ -1,11 +1,33 @@
 # Readme-Generator
 
+# User Story 
+AS A developer
+I WANT a README generator
+SO THAT I can quickly create a professional README for a new project
+
+# Installation 
+* Clone repository: git clone https://github.com/Chrisld50/Readme-Generator
+* All NPM packages needed for this application are already listed as dependencies in the package.json file. Run the command 'npm install' in your terminal at the root directory to install the packages. 
+* Make sure that Node.js is installed on your machine.
+* To start the application type in node index.js in the terminal. The terminal will respond with prompts to create the generated README.
+
+
 # Description
-The goal of this project was to create a README Generator utilizing npms like inquirer and node.js. I learned how to makes the prompts in inquirer to work properly and once they were finished, generate a created README from said prompts that were given. I have also been learning alot on how to utilize the terminal itself instead of creating a README itself and type it out on the actual README. The difficulty in this project was around getting the license badges and to render in the badge and link to the created README file. Overall this project came out well,  I was able to generate a README in a terminal without having to write it out myself.
+* The application utilizes Node.js and fs to create a generated README.
+* This application is useful for those who struggle creating a README for their projects.
+* The user is given prompts to answer in the terminal on what they would like added to their README.
+* Once all of the prompts are answered, fs will print a generated README for the user.
+* If the user is not satisfied with what they added to their generated README the user can run the application again to create a new README. 
 
 # Technologies 
-Javascript, Node.js, fs, inquirer 
+* Javascript 
+* Node.js 
+* fs 
+* inquirer 
 
 # Screenshot 
 
 ![image](./Movie/Generated%20README%20file%20.png)
+
+# Link 
+https://drive.google.com/file/d/1KfQUqrWqsrVWJg-L4XcBryer-1xrXaEx/view
